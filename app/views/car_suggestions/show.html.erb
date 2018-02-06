@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @car_suggestion.model %>
+</p>
+
+<p>
+  <strong>Manufacturer:</strong>
+  <%= @car_suggestion.manufacturer %>
+</p>
+
+<p>
+  <strong>Style:</strong>
+  <%= @car_suggestion.style %>
+</p>
+
+<%= link_to 'Edit', edit_car_suggestion_path(@car_suggestion) %> |
+<%= link_to 'Back', car_suggestions_path %>

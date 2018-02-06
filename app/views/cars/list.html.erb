@@ -1,0 +1,56 @@
+<%customer_id = @customer_id%>
+<p id="notice"><%= notice %></p>
+<h1>Search Car</h1>
+<%=form_tag('/car_search_list'   ,:method => :post, :customer_id => customer_id) do %>
+    Manufacturer: <%= text_field_tag :manufacturer, params[:manufacturer] %>
+    Model: <%= text_field_tag :model, params[:model] %>
+    Location: <%= text_field_tag :location, params[:location] %>
+    Style: <%= text_field_tag :style, params[:style] %>
+    Status: <%= text_field_tag :status, params[:status] %>
+    <div><%= button_to "Search", :action => "list", :controller => "cars", :customer_id => customer_id %></div>
+<%end%>
+<h1>Cars</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>License-plate</th>
+    <th>Manufacturer</th>
+    <th>Model</th>
+    <th>Hour rental</th>
+    <th>Style</th>
+    <th>Location</th>
+    <th>Status</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @cars.each do |car| %>
+      <tr>
+        <td><%= car.licenseplate %></td>
+        <td><%= car.manufacturer %></td>
+        <td><%= car.model %></td>
+        <td><%= car.hour_rental %></td>
+        <td><%= car.style %></td>
+        <td><%= car.location %></td>
+        <td><%= car.status %></td>
+        <% if car.status == "Available"&& @customer_id %>
+            <td><%= link_to 'book', new_rental_path(:car_id => car.id, :customer_id => @customer_id) %></td>
+        <% elsif car.status == "Available"&&current_customer %>
+          <td><%= link_to 'book', new_rental_path(:car_id => car.id, :customer_id => current_customer.id) %></td>
+        <% end %>
+        <% if car.status != "Available" && @customer_id %>
+            <td><%= link_to 'register', new_register_mailer_path(:car_id => car.id, :customer_id => @customer_id) %></td>
+        <% elsif car.status != "Available"&&current_customer %>
+            <td><%= link_to 'register', new_register_mailer_path(:car_id => car.id, :customer_id => @customer_id)  %></td>
+
+      <% end %>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

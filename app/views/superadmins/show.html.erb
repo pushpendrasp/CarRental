@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @superadmin.name %>
+</p>
+<% if current_superadmin && current_superadmin.id == @superadmin.id%>
+<p>
+  <strong>Password:</strong>
+  <%= @superadmin.password %>
+</p>
+<% end %>
+<p>
+  <strong>Email:</strong>
+  <%= @superadmin.email %>
+</p>
+
+<%= link_to 'Edit', edit_superadmin_path(@superadmin) %> |
+<%= link_to 'SuperAdmins', superadmins_path %> |
+<%= link_to 'Admins', admins_path %> |
+<%= link_to 'Customers', customers_path %> |
+<%= link_to 'Cars', cars_path %> |
+<%= link_to 'Suggestions', car_suggestions_path %>

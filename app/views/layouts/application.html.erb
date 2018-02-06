@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CarRental</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <!--added these lines.-->
+<% if current_superadmin%>
+  Signed in as superadmin <%= current_superadmin.name %> | <%= link_to "Logout", '/logout' %>
+  <%= link_to "Home" , superadmin_url(current_superadmin.id)  %>
+<% elsif current_customer %>
+  Signed in as customer <%= current_customer.name %> | <%= link_to "Logout", '/logout' %>
+  <%= link_to "Home" , customer_url(current_customer.id)  %>
+<% elsif current_admin%>
+  Signed in as admin <%= current_admin.name %> | <%= link_to "Logout", '/logout' %>
+  <%= link_to "Home" , admin_url(current_admin.id)  %>
+<% else%>
+      <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+<% end %>
+
+
+    <%= yield %>
+  </body>
+</html>

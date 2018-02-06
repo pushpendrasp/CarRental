@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Car Suggestions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>Manufacturer</th>
+      <th>Style</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @car_suggestions.each do |car_suggestion| %>
+      <tr>
+        <td><%= car_suggestion.model %></td>
+        <td><%= car_suggestion.manufacturer %></td>
+        <td><%= car_suggestion.style %></td>
+        <td><%= link_to 'Add', new_car_path(:manufacturer=> car_suggestion.manufacturer,
+        :model=> car_suggestion.model, :style => car_suggestion.style)%></td>
+        <td><%= link_to 'Show', car_suggestion %></td>
+        <td><%= link_to 'Edit', edit_car_suggestion_path(car_suggestion) %></td>
+        <td><%= link_to 'Destroy', car_suggestion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Car Suggestion', new_car_suggestion_path %>

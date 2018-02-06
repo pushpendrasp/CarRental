@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Rentals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Car id</th>
+      <th>Customer id</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rentals.reverse_each do |rental| %>
+      <tr>
+        <td><%= rental.car_id %></td>
+        <td><%= rental.customer_id %></td>
+        <td><%= rental.start_date %></td>
+        <td><%= rental.end_date %></td>
+        <td><%= rental.status %></td>
+        <td><%= link_to 'Show', rental %></td>
+        <td><%= link_to 'Destroy', rental, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rental', new_rental_path %>

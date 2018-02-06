@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: abhishek@gmail.com
+  name: abhishek
+  password: 123456789
+
+two:
+  email: bhardwaj@gmail.com
+  name: abhishek
+  password: 123456789

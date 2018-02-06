@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Car:</strong>
+  <%= @register_mailer.car_id %>
+</p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @register_mailer.customer_id %>
+</p>
+
+<%= link_to 'Edit', edit_register_mailer_path(@register_mailer) %> |
+<%= link_to 'Back', register_mailers_path %>

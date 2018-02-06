@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @customer.email %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @customer.name %>
+</p>
+
+<p>
+  <strong>Rental charge:</strong>
+  <%# @customer.rental_charge= '50' %>
+  <%# @customer.save! %>
+  <%= @finished %>
+  <%= @customer.rental_charge %>
+</p>
+
+| <%= link_to 'history', :controller => 'rentals', :action => "history",
+            :customer_id => @customer.id  %>
+| <%= link_to 'Edit', edit_customer_path(@customer) %>
+| <%= link_to 'cars', :controller => 'cars' , :action => "list", :customer_id => @customer.id %>
+| <%= link_to 'suggestions' ,:controller => 'car_suggestions', :action => 'new' %>
+
+<%if  @booked !=nil %>
+    <%= button_to 'Checkout' , :controller => "rentals", :action => "start",
+                  :id => @booked.id %>
+<% end %>
+
+
+<%if  @checked_out !=nil %>
+    <%= button_to 'Return' , :controller => "rentals", :action => "finish",
+                  :id => @checked_out.id %>
+<% end %>
+
+<%if  @to_cancel!=nil %>
+    <%= button_to 'Cancel latest_booking' , :controller => "rentals", :action => "cancel",
+                  :id => @to_cancel.id %>
+<% end %>

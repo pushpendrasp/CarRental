@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: abhi@shek.org
+  name: abhishek
+  password: 123456789
+  rental_charge: MyString
+
+two:
+  email: bhar@dwaj.com
+  name: abhishek
+  password: 123456789
+  rental_charge: MyString

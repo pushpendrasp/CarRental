@@ -1,0 +1,27 @@
+<%= form_with(model: register_mailer, local: true) do |form| %>
+  <% if register_mailer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(register_mailer.errors.count, "error") %> prohibited this register_mailer from being saved:</h2>
+
+      <ul>
+      <% register_mailer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :car_id %>
+    <%= form.text_field :car_id, id: :register_mailer_car_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :customer_id %>
+    <%= form.text_field :customer_id, id: :register_mailer_customer_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

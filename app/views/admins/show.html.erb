@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @admin.email %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @admin.name %>
+</p>
+
+<% if  current_admin &&current_admin.id == @admin.id %>
+<p>
+  <strong>Password:</strong>
+  <%= @admin.password %>
+</p>
+<%end%>
+
+<%= link_to 'Edit', edit_admin_path(@admin) %> |
+<%= link_to 'Add/Modify admins', admins_path %> |
+<%= link_to 'Cusomters', customers_path %> |
+<%= link_to 'Add/Modify Cars', cars_path %> |
+<%= link_to 'Suggestions', car_suggestions_path %>

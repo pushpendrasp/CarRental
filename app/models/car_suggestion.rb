@@ -1,0 +1,2 @@
+class CarSuggestion < ApplicationRecord
+end

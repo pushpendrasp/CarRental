@@ -1,0 +1,17 @@
+<%= form_with(model: sessions_controller, local: true) do |form| %>
+  <% if sessions_controller.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sessions_controller.errors.count, "error") %> prohibited this sessions_controller from being saved:</h2>
+
+      <ul>
+      <% sessions_controller.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

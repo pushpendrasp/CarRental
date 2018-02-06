@@ -1,0 +1,2 @@
+module CarSuggestionsHelper
+end
